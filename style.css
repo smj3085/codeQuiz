@@ -1,3 +1,9 @@
+/*  */
+::selection {
+    color: white;
+    background: darkblue;
+}
+
 body {
     font-family: sans-serif;
 }
@@ -5,6 +11,8 @@ body {
 header {
     text-align: center;
     padding: 20px;
+    background: #82250c;
+    color: white;
 }
 
 h1 {
@@ -15,14 +23,9 @@ main {
     text-align: center;
 }
 
-ul {
-    list-style-type: none;
-
-}
-
-.btn {
+button {
     border: none;
-    background-color: red;
+    background-color: #82250c;
     border-radius: 25px;
     font-size: 22px;
     margin: 15px 15px 15px 20px;
