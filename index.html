@@ -8,55 +8,54 @@
     </head>
 
     <body>
-        <header class="titlePage">
+        <header class="loading-page">
             <h1>The Coding Quiz</h1>
             <p>Test your coding skills with our quick quiz!</p>
         </header>
 
         <main>
             <!-- How to play instructions section -->
-            <section class="howToPlay">
+            <section class="instructions">
                 <h2>Instructions</h2>
                 <p>Try to answer the following code-related questions within the time limit.<br>
                 Questions answered incorrectly will incur a penalty of 10seconds</p>
             </section>
         
-            <!-- start Button to start the game -->
+            <!-- click start Button to start the game -->
             <section>
-                <button id="start-button" class="btn">Start</button>
+                <button id="start-button">Start</button>
             </section>
 
-            <!-- Quiz questions -->
-            <section class="quizQuestions">
-                <header>
-                    <div class="title">The Coding Quiz</div>
-                    <div class="timer">
-                        <div class="timer-text">Time left</div>
-                        <div class="timer-count">120</div>
+            <div class=quiz-main>
+                <!-- Quiz questions -->
+                <section class="quiz-questions">
+                    <header>
+                        <h2 class="title">The Coding Quiz</h2>
+                        <div class="timer">
+                            <div class="timer-txt">Time left</div>
+                            <div class="timer-count">120</div>
+                        </div>
+                    </header>
+                    <section class="question-card">
+                        <!-- Questions from JavaScript -->
+                    </section>
+                    <section class="options">
+                        <!-- Multiple choice answers -->
+                    </section>
+                </section>
+
+                <!-- Result box -->
+                <section class="results">
+                    <div class="completed-txt">You've completed the quiz!</div>
+                    <div class="score">Final score
+                        <!-- Score results from JavaScript -->
                     </div>
-                </header>
-                <section class="que_txt">
-                    <!-- Questions from JavaScript -->
+                    <div>
+                        <button class="replayBtn">Replay Quiz</button>
+                        <button class="quitBtn">Quit Quiz</button>
+                    </div>
                 </section>
-                <section class="multipleChoice">
-                    <!-- Multiple choice answers -->
-                </section>
-            </section>
-
-            <!-- Result box -->
-            <section class="results">
-                <div class="completed_txt">You've completed the quiz!</div>
-                <div class="score">
-                    <!-- Score results from JavaScript -->
-                </div>
-                <div class="btn">
-                    <button class="replay">Replay Quiz</button>
-                    <button class="quit">Quit Quiz</button>
-                </div>
             </div>
-            </section>
-
-
         </main>
         <script src="script.js"></script>
     </body>
