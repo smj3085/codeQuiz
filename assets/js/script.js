@@ -11,14 +11,14 @@ var myQuestions = [
         answer: "a. Hyper Text Markup Language"
     },
     {
-        question: "2. Which of the following is a not a data type?",
+        question: "2. What do you call a person who codes?",
         options: [
-            "a. Integer",
-            "b. Software",
-            "c. String",
-            "d. Boolean",
+            "a. Professor",
+            "b. Programmer",
+            "c. Writer",
+            "d. Teacher",
         ],
-        answer: "b. Software"
+        answer: "b. Programmer"
     },
     {
         question: "3. What does css stand for?",
@@ -26,19 +26,19 @@ var myQuestions = [
             "a. Colourful Style Sheet",
             "b. Cascading Style Sheet",
             "c. Computer Style Sheet,",
-            "d. Coloring Sheet Style"
+            "d. Coloring Sheet Stylishly"
         ],
         answer: "b. Cascading Style Sheet"
     },
     {
-        question: "4. Which of the following options are not coding languages?",
+        question: "4. Which of the following options is a coding language?",
         options: [
             "a. Python",
-            "b. Bite",
+            "b. Koala",
             "c. Quidditch",
             "d. Apple",
         ],
-        answer: "d. Apple"
+        answer: "a. Python"
     },
     {
         question: "5. What is computer coding?",
@@ -278,7 +278,7 @@ replayBtn.addEventListener("click", function() {
 clearHighscores.addEventListener("click", function() {
     window.localStorage.removeItem("highscores");
     renderScores();
-    listOfHighScores.innerHTML = "High Scores Cleared!";
+    listOfHighScores.innerHTML = "Previous Scores Cleared!";
     listOfHighScores.setAttribute("style", "font-family: 'Nunito sans', sans-serif; font-style: italic;");
 });
 
