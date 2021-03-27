@@ -4,59 +4,82 @@
         <title>The Coding Quiz</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">  
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap" rel="stylesheet">  
+        <link rel="stylesheet" href="./assets/css/style.css" />
     </head>
 
     <body>
-        <header class="loading-page">
-            <h1>The Coding Quiz</h1>
-            <p>Test your coding skills with our quick quiz!</p>
-        </header>
-
-        <main>
+        <div class="loading-page">
+            <header>
+                <h1>The Coding Quiz</h1>
+                <p>Test your coding skills with our quick quiz!</p>
             <!-- How to play instructions section -->
+            </header>
             <section class="instructions">
                 <h2>Instructions</h2>
                 <p>Try to answer the following code-related questions within the time limit.<br>
                 Questions answered incorrectly will incur a penalty of 10seconds</p>
             </section>
-        
-            <!-- click start Button to start the game -->
+
             <section>
-                <button id="start-button">Start</button>
+                <button class="start-button">Start</button>
             </section>
+        </div>
 
-            <div class=quiz-main>
-                <!-- Quiz questions -->
-                <section class="quiz-questions">
-                    <header>
-                        <h2 class="title">The Coding Quiz</h2>
-                        <div class="timer">
-                            <div class="timer-txt">Time left</div>
-                            <div class="timer-count">120</div>
-                        </div>
-                    </header>
-                    <section class="question-card">
-                        <!-- Questions from JavaScript -->
-                    </section>
-                    <section class="options">
-                        <!-- Multiple choice answers -->
-                    </section>
-                </section>
+            <!-- Quiz main section -->
+        <div class="quiz-main">
+            <header>
+                <h2 class="title">The Coding Quiz</h2>
+                <div class="timer">
+                    <div class="timer-text">Time left</div>
+                    <div class="timer-left">30</div>
+                </div>
+            </header>
+            <section class="quiz-box">
+                <div class="question-title"></div>
+                <ul>
+                <!-- Questions from JavaScript -->
+                <!-- Multiple choice answers -->
+                    <li><button id="btn0" class="options-list"></button></li>
+                    <li><button id="btn1" class="options-list"></button></li>
+                    <li><button id="btn2" class="options-list"></button></li>
+                    <li><button id="btn3" class="options-list"></button></li>
+                </ul>
+                <div class="answer-check"></div>
 
-                <!-- Result box -->
-                <section class="results">
-                    <div class="completed-txt">You've completed the quiz!</div>
-                    <div class="score">Final score
-                        <!-- Score results from JavaScript -->
-                    </div>
-                    <div>
-                        <button class="replayBtn">Replay Quiz</button>
-                        <button class="quitBtn">Quit Quiz</button>
-                    </div>
-                </section>
+            </section>  
+        </div>
+
+        <!-- Results page -->
+        <div class="results-box">
+            
+            <img src="./assets/images/tick.png" alt="tick">
+            <h2 class="completed-text"></h2>
+            <div class="final-score">Your score is
+                    <!-- Score results from JavaScript -->
             </div>
-        </main>
-        <script src="script.js"></script>
+            <form class="initials">Input your initials<input type="text" id="initialText">
+                <button class="submit-button">Submit</button>
+            </form>
+            <div class="result-buttons">
+                <button class="replay-button">Replay Quiz</button>
+                <button class="highscore-button">View High Scores</button>
+            </div>
+        </div>
+
+        <!-- Highscore section -->
+        <div class="highscore-box">
+            
+            <div class="list-highscores">
+                <!-- append each highscore as new paragraph here -->
+            </div>
+            <button class="clear-button">Clear High Scores</button>
+            <button class="goback-button">Go Back</button>
+        </div>
+   
+        <!-- add in javascript link -->
+        <script src="./assets/js/script.js"></script>
     </body>
 </html>

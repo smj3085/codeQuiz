@@ -1,0 +1,145 @@
+/*  */
+*{
+    margin: 10px;
+    font-family: 'Nunito Sans', sans-serif;
+}
+::selection {
+    color: white;
+    background: rgba(93, 93, 206, 0.616);
+}
+
+:root {
+    --redlook: #82250c;
+}
+
+.loading-page header {
+    padding: 10px;
+    background: var(--redlook);
+    color: white;
+}
+
+.loading-page {
+    text-align: center;
+}
+
+h1 {
+    font-weight: 800;
+    padding: 10px;
+}
+
+.start-button {
+    border: none;
+    background-color: var(--redlook);
+    border-radius: 25px;
+    font-size: 22px;
+    margin: 15px 15px 15px 20px;
+    padding: 10px 10px;
+    color: white;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+
+button {
+    outline: 0;
+}
+
+.replay-button,
+.quit-button,
+.clear-button,
+.submit-button,
+.go-back {
+    border: none;
+    background-color: var(--redlook);
+    border-radius: 25px;
+    font-size: 15px;
+    margin: 15px 15px 15px 20px;
+    padding: 10px 10px;
+    color: white;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+
+.highscore-button {
+    display: flex;
+    border: none;
+    background: var(--redlook);
+    color: white;
+    border-radius: 25px;
+    font-size: 15px;
+    margin: 15px 15px 15px 20px;
+    padding: 10px 10px;
+    cursor: pointer;
+}
+
+.times-up {
+    display: none;
+}
+
+.quiz-main {
+    transition: all 0.3s ease;
+}
+
+.question-title {
+    font-weight: 800;
+    font-size: 20px;
+    margin: 20px;
+}
+
+.quiz-box li {
+    list-style-type: none;
+}
+
+.quiz-main header {
+    position: relative;
+    background: var(--redlook);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.options-list {
+    padding: 10px;
+    display: block;
+    background:white;
+    font-family: 'Nunito Sans';
+    margin-bottom: 15px;
+    font-size: 17px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.answer-check {
+    margin-left: 20px;
+}
+
+.options-list:hover {
+    color: white;
+    background: var(--redlook);
+}
+
+.results-box {
+    text-align: center;
+}
+
+
+.results-box img {
+    height: 100px;
+}
+
+.result-buttons {
+    display: inline-flex;
+}
+
+.list-highscores {
+    display: block;
+}
+
+.quiz-main,
+.results-box,
+.highscore-box {
+    display: none;
+}
