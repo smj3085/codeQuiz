@@ -12,6 +12,23 @@
     --redlook: #82250c;
 }
 
+button {
+    outline: 0;
+}
+
+.main-button {
+    border: none;
+    background-color: var(--redlook);
+    border-radius: 25px;
+    font-size: 15px;
+    margin: 15px 15px 15px 20px;
+    padding: 10px 10px;
+    color: white;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+
 .loading-page header {
     padding: 10px;
     background: var(--redlook);
@@ -27,54 +44,8 @@ h1 {
     padding: 10px;
 }
 
-.start-button {
-    border: none;
-    background-color: var(--redlook);
-    border-radius: 25px;
-    font-size: 22px;
-    margin: 15px 15px 15px 20px;
-    padding: 10px 10px;
-    color: white;
-    display: inline-block;
-    text-align: center;
-    cursor: pointer;
-}
-
-button {
-    outline: 0;
-}
-
-.replay-button,
-.quit-button,
-.clear-button,
-.submit-button,
-.go-back {
-    border: none;
-    background-color: var(--redlook);
-    border-radius: 25px;
-    font-size: 15px;
-    margin: 15px 15px 15px 20px;
-    padding: 10px 10px;
-    color: white;
-    display: inline-block;
-    text-align: center;
-    cursor: pointer;
-}
-
-.highscore-button {
-    display: flex;
-    border: none;
-    background: var(--redlook);
-    color: white;
-    border-radius: 25px;
-    font-size: 15px;
-    margin: 15px 15px 15px 20px;
-    padding: 10px 10px;
-    cursor: pointer;
-}
-
-.times-up {
-    display: none;
+h2 {
+    font-weight: 800;
 }
 
 .quiz-main {
@@ -121,10 +92,11 @@ button {
     background: var(--redlook);
 }
 
-.results-box {
+.results-box,
+.highscore-box {
     text-align: center;
+    list-style-type: none;
 }
-
 
 .results-box img {
     height: 100px;
@@ -136,6 +108,10 @@ button {
 
 .list-highscores {
     display: block;
+}
+
+.times-up {
+    display: none;
 }
 
 .quiz-main,

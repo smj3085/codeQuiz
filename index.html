@@ -24,7 +24,7 @@
             </section>
 
             <section>
-                <button class="start-button">Start</button>
+                <button class="main-button" id="start-button">Start</button>
             </section>
         </div>
 
@@ -61,22 +61,25 @@
                     <!-- Score results from JavaScript -->
             </div>
             <form class="initials">Input your initials<input type="text" id="initialText">
-                <button class="submit-button">Submit</button>
+                <button class="main-button" id="submit-button">Submit</button>
             </form>
             <div class="result-buttons">
-                <button class="replay-button">Replay Quiz</button>
-                <button class="highscore-button">View High Scores</button>
+                <button class="main-button" id="replay-button">Replay Quiz</button>
+                <button class="main-button" id="highscore-button">View High Scores</button>
             </div>
         </div>
 
         <!-- Highscore section -->
         <div class="highscore-box">
-            
+            <h2>High Scores</h2>
             <div class="list-highscores">
+                <ul>
                 <!-- append each highscore as new paragraph here -->
+                </ul>
             </div>
-            <button class="clear-button">Clear High Scores</button>
-            <button class="goback-button">Go Back</button>
+
+            <button class="main-button" id="clear-button">Clear High Scores</button>
+            <button class="main-button" id="goback-button">Go Back</button>
         </div>
    
         <!-- add in javascript link -->

@@ -11,14 +11,14 @@ var myQuestions = [
         answer: "a. Hyper Text Markup Language"
     },
     {
-        question: "2. What do you call a person who codes?",
+        question: "2. Which of the following is a not a data type?",
         options: [
-            "a. Pssssss",
-            "b. Programmer",
-            "c. Sxxxxxxxx",
-            "d. Txxxxxxx",
+            "a. Integer",
+            "b. Software",
+            "c. String",
+            "d. Boolean",
         ],
-        answer: "b. Programmer"
+        answer: "b. Software"
     },
     {
         question: "3. What does css stand for?",
@@ -26,7 +26,7 @@ var myQuestions = [
             "a. Colourful Style Sheet",
             "b. Cascading Style Sheet",
             "c. Computer Style Sheet,",
-            "d. Coloring Sxxxx Sxxxxxx"
+            "d. Coloring Sheet Style"
         ],
         answer: "b. Cascading Style Sheet"
     },
@@ -34,18 +34,28 @@ var myQuestions = [
         question: "4. Which of the following options are not coding languages?",
         options: [
             "a. Python",
-            "b. xxxxxxx",
-            "c. xxxxxxxx",
+            "b. Bite",
+            "c. Quidditch",
             "d. Apple",
         ],
         answer: "d. Apple"
+    },
+    {
+        question: "5. What is computer coding?",
+        options: [
+            "a. A list of functions",
+            "b. A TV show",
+            "c. Giving a computer instructions",
+            "d. A computer game",
+        ],
+        answer: "c. Giving a computer instructions"
     }
 ]
 
 // variables
 // Initial page
 var loadingPage = document.querySelector(".loading-page");
-var startButton = document.querySelector(".start-button");
+var startButton = document.querySelector("#start-button");
 // Questions section 
 var quizSection = document.querySelector(".quiz-main");
 var questionEl = document.querySelector(".quiz-box");
@@ -55,21 +65,21 @@ var optionB = document.querySelector("#btn1");
 var optionC = document.querySelector("#btn2");
 var optionD = document.querySelector("#btn3");
 var answerCheck = document.querySelector(".answer-check");
-var totalQueCounter = document.querySelector(".que-counter");
 //  Results section
 var resultsEl = document.querySelector(".results-box");
-var initialsInput = document.querySelector(".initials");
-var submitIntBtn = document.querySelector(".submit-button");
-var replayBtn = document.querySelector(".replay-button");
-var clearHighscores = document.querySelector(".clear-button");
+var initialsInput = document.getElementById("initialText") 
+var submitIntBtn = document.querySelector("#submit-button");
+var replayBtn = document.querySelector("#replay-button");
+var clearHighscores = document.querySelector("#clear-button");
 // Time and score
 var timer = document.querySelector(".timer");
 var timeLeft = document.querySelector(".timer-left");
 var completedText = document.querySelector(".completed-text");
 var highScoreBox = document.querySelector(".highscore-box");
 var finalScore = document.querySelector(".final-score");
-var highScoresBtn = document.querySelector(".highscore-button");
+var highScoresBtn = document.querySelector("#highscore-button");
 var listOfHighScores = document.querySelector(".list-highscores");
+var goBackBtn = document.querySelector("#goback-button");
 
 var questionIndex = 0;
 var totalTime =30;
@@ -175,62 +185,54 @@ function gameOver() {
 }
 
 // store initials and highscore in local storage
-function storeHighScores(correctAns, initial) {
 
-    // stop function is initial is blank
-    if (initial === "") {
-        window.alert("Please enter your initials!");
-        return;
-    } 
-
-    listOfHighScores.style.display = "block";
-
-    // store scores into local storage
-    var savedHighScores = localStorage.getItem("high scores");
-    var scoresArray;
-
-    if (savedHighScores === null) {
-        scoresArray = [];
-    } else {
-        scoresArray = JSON.parse(savedHighScores)
-    }
-
-    var user = {
-        initials: initial,
-        score: correctAns,
-    }; 
-
-    scoresArray.push(user);
- 
-// strinify array in order to syore in local storage
-    var scoresArrayString = JSON.stringify(scoresArray);
-    window.localStorage.setItem("high scores", scoresArrayString);
+var highscores = {
+    initials : [],
+    scores : [],
 }
 
-// // function to show high scores
-var i = 0;
-function showHighScores() {
-    loadingPage.style.display = "none";
-    timeLeft.style.display = "none";
-    quizSection.style.display = "none";
-    resultsEl.style.display = "none";
-    listOfHighScores.style.display = "block";
+function getScores() {
+    var storedHighscoresString = localStorage.getItem("highscores");
 
-    var savedHighScores = localStorage.getItem("high scores");
-
-    // check if there is any in local storage
-    if (savedHighScores === null) {
-        return;
+    if (storedHighscoresString !== null) {
+        var storedHighscores = JSON.parse(storedHighscoresString);
+        highscores.initials = storedHighscores.initials;
+        highscores.scores = storedHighscores.scores;
+    } else {
+        highscores.initials = [];
+        highscores.scores = [];
     }
-    console.log(showHighScores);
+}
 
-    var storedHighScores = JSON.parse(savedHighScores);
+// function showHighScores() {
+//     highScoreBox.style.display = "block";
+//     resultsEl.style.display = "none";
 
-    for (; i < storedHighScores.length; i++) {
-        var eachNewHighScore = document.createElement("p");
-        eachNewHighScore.innerHTML = storedHighScores[i].initials + ": " + storedHighScores[i].score;
-        listOfHighScores.appendChild(eachNewHighScore);
+function renderScores() {
+    listOfHighScores.innerHTML = "";
+
+
+    getScores();
+
+    for (var i = 0; i < highscores.initials.length; i++) {
+        var listEl = document.createElement("li");
+        var pEl = document.createElement("p");
+        pEl.setAttribute("class", "highscores");
+        pEl.textContent = (i + 1) + ". " + highscores.initials[i] + " - " + highscores.scores[i];
+
+        listEl.appendChild(pEl);
+        listOfHighScores.appendChild(listEl);
     }
+}
+
+function saveScore (newInitials, newScore) {
+    getScores ();
+
+    highscores.initials.push(newInitials);
+    highscores.scores.push(newScore);
+
+    var highscoresString = JSON.stringify(highscores);
+    localStorage.setItem("highscores", highscoresString);
 }
 
 // Events
@@ -245,13 +247,22 @@ optionD.addEventListener("click", chooseD);
 
 // Submitting initials at the end of the quiz
 submitIntBtn.addEventListener("click", function(event) {
-    event.preventDefault(); 
-    storeHighScores(finalScore.textContent, document.getElementById("initialText").value); 
+    event.preventDefault();
+
+    // stop function is initial is blank
+    if (initialsInput.value === "") {
+        window.alert("Please enter your initials!");
+        return null;
+    } 
+
+    saveScore (initialsInput.value, correctAns);
 });
 
 
 highScoresBtn.addEventListener("click", function() { 
-    showHighScores();
+    renderScores();
+    highScoreBox.style.display = "block";
+    resultsEl.style.display = "none";
 });
 
 // When replay button is clicked, resets to loading page and reset timer to 30
@@ -259,13 +270,23 @@ replayBtn.addEventListener("click", function() {
     loadingPage.style.display = "block";
     quizSection.style.display = "none";
     resultsEl.style.display = "none";
-    listOfHighScores.style.display = "none";
+    highScoreBox.style.display = "none";
     timeLeft.style.display = "block";
     totalTime = 30;
 });
 
 clearHighscores.addEventListener("click", function() {
-    window.localStorage.removeItem("high scores");
+    window.localStorage.removeItem("highscores");
+    renderScores();
     listOfHighScores.innerHTML = "High Scores Cleared!";
     listOfHighScores.setAttribute("style", "font-family: 'Nunito sans', sans-serif; font-style: italic;");
+});
+
+if (listOfHighScores !== null) {
+    renderScores();
+}
+
+goBackBtn.addEventListener("click", function() {
+    resultsEl.style.display = "block";
+    highScoreBox.style.display = "none";
 });
